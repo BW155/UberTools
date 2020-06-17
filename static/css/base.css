@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+nav {
+    width: 100%;
+    height: 70px;
+    background-color: #9b4dca;
+}
+
+.nav-title {
+    font-weight: bold;
+    padding: 15px;
+    padding-right: 5px;
+    min-width: 170px;
+}
+
+.container {
+    margin-top: 25px;
+}
+
+.card {
+    background-color: #212121;
+    padding: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.field-holder {
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.nav-wrapper > * {
+    display: inline-flex;
+}
+
+input[type="search"] {
+    background-color: white;
+    max-width: 50vw;
+}

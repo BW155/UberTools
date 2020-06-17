@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Uber Toolkit</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.0/milligram.css">
+        <link rel="stylesheet" href="/static/css/dark.css">
+
+        <link rel="stylesheet" href="/static/css/base.css">
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+                <h3 class="nav-title"><a href="/">Uber Toolkit</a></h3>
+                <div class="field-holder">
+                    <input id="search-field" type="search" placeholder="Search For Tools">
+                </div>
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock content %}
+    </body>
+</html>
