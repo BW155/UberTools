@@ -16,11 +16,16 @@
             <div class="nav-wrapper">
                 <h3 class="nav-title"><a href="/">Uber Toolkit</a></h3>
                 <div class="field-holder">
-                    <input id="search-field" type="search" placeholder="Search For Tools">
+                    <input id="search-field" type="search" placeholder="Search For Tools" onkeyup="search(this.value)" autocomplete="off">
                 </div>
             </div>
         </nav>
+        <div id="results"></div>
         {% block content %}
         {% endblock content %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/static/js/search.js"></script>
+        {% block scripts %}
+        {% endblock scripts %}
     </body>
 </html>

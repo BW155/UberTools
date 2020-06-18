@@ -1,0 +1,6 @@
+
+{% for r in results %}
+<div class="result-card">
+    {{r.name}}
+</div>
+{% endfor %}

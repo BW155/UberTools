@@ -4,7 +4,7 @@
 {% block content %}
     <div class="container">
         <div class="card">
-            <h1>Welcome to this index page</h1>
+            <h3>Start searching up here and find the tool you desire.</h3>
         </div>
     </div>
 {% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "base" %}
+
+{% block content %}
+    <div class="container">
+        <h3>Counting Words In Strings</h3>
+        <div class="card">
+            <textarea placeholder="Enter text here" onkeyup="countWords(this.value)">
+
+            </textarea>
+        </div>
+        <div class="card">
+            <h4 id="result"></h4>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script>
+        function countWords(s) {
+            s = s.replace(/(^\s*)|(\s*$)/gi,"");//exclude  start and end white-space
+            s = s.replace(/\n/g, " ");
+            console.log(s.split(""));
+            s = s.replace(/[ ]{2,}/gi," ");//2 or more space to 1
+            let len = s.split(' ').filter(function(str){return str!="";}).length;
+            $("#result").html("Wordcount: " + len);
+        }
+        countWords("");
+    </script>
+{% endblock scripts %}
