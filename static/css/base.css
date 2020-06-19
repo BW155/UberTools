@@ -17,6 +17,10 @@ nav {
     background-color: #9b4dca;
 }
 
+textarea {
+    height: 120px
+}
+
 .nav-title {
     font-weight: bold;
     padding: 15px;

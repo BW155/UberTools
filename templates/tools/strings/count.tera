@@ -4,9 +4,7 @@
     <div class="container">
         <h3>Counting Words In Strings</h3>
         <div class="card">
-            <textarea placeholder="Enter text here" onkeyup="countWords(this.value)">
-
-            </textarea>
+            <textarea placeholder="Enter text here" onkeyup="countWords(this.value)" rows="8"></textarea>
         </div>
         <div class="card">
             <h4 id="result"></h4>
@@ -16,13 +14,12 @@
 
 {% block scripts %}
     <script>
-        function countWords(s) {
-            s = s.replace(/(^\s*)|(\s*$)/gi,"");//exclude  start and end white-space
-            s = s.replace(/\n/g, " ");
-            console.log(s.split(""));
+        function countWords(str) {
+            var s = str.replace(/(^\s*)|(\s*$)/gi,"");//exclude  start and end white-space
+            s = s.replace(/\n/g, " "); // remove linebreaks
             s = s.replace(/[ ]{2,}/gi," ");//2 or more space to 1
             let len = s.split(' ').filter(function(str){return str!="";}).length;
-            $("#result").html("Wordcount: " + len);
+            $("#result").html("Words: " + len + "<br>Characters: " + str.length);
         }
         countWords("");
     </script>
