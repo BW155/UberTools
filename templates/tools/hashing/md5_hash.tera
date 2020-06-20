@@ -1,0 +1,20 @@
+{% extends "base" %}
+
+{% block content %}
+    <div class="container">
+        <h3>Hashing text to MD5</h3>
+        <form>
+            <div class="card">
+                <input name="text" type="text" placeholder="Enter text here" 
+                {% if original %}value="{{original}}"{% endif %}></input>
+                <input type="submit" value="Result">
+            </div>
+        </form>
+        <div class="card">
+            <h4 id="result">MD5: {% if hash %}{{hash}}{% endif %}</h4>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

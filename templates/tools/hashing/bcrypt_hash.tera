@@ -1,0 +1,22 @@
+{% extends "base" %}
+
+{% block content %}
+    <div class="container">
+        <h3>Hashing text to Bcrypt</h3>
+        <form>
+            <div class="card">
+                <input name="text" type="text" placeholder="Enter text here" 
+                    {% if original %}value="{{original}}"{% endif %}></input>
+                <input name="cost" type="number" min="4" max="18"
+                    {% if original_cost %}value="{{original_cost}}"{% else %}value="12"{% endif %}></input>
+                <input type="submit" value="Result">
+            </div>
+        </form>
+        <div class="card">
+            <h4 id="result">Bcrypt: {% if hash %}{{hash}}{% endif %}</h4>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

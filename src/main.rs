@@ -37,10 +37,11 @@ lazy_static! {
             "Counts Words In A Text",
             "/tools/strings/count",
         ),
+        Tool::new("MD5 Hash", "Hash Text To MD5", "/tools/hashing/md5_hash",),
         Tool::new(
-            "String Word Count",
-            "Counts Words In A Text",
-            "/tools/strings/count",
+            "Bcrypt Hash",
+            "Hash Text To Bcrypt",
+            "/tools/hashing/bcrypt_hash",
         )
     ];
 }
@@ -71,7 +72,15 @@ fn main() {
         .mount("/static", StaticFiles::from("static"))
         .mount(
             "/",
-            routes![index, tools::strings::count::count_string, search],
+            routes![
+                index,
+                tools::hashing::md5::md5_hash,
+                tools::hashing::md5::md5_hash_query,
+                tools::hashing::bcrypt::bcrypt_hash,
+                tools::hashing::bcrypt::bcrypt_hash_query,
+                tools::strings::count::count_string,
+                search,
+            ],
         )
         .launch();
 }
