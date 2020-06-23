@@ -1,0 +1,62 @@
+{% extends "base" %}
+
+{% block content %}
+    <div class="container">
+        <h3>Convert Binary</h3>
+        <blockquote style="color: orange">
+            Processing is done in the browser, may freeze temporary on large files.
+        </blockquote>
+        <div class="card">
+            <div>
+                <div class="upload-btn-wrapper">
+                    <button>File To Get Text From</button>
+                    <input id="file" type="file" placeholder="Enter File" onkeyup="calculate(0, this.value)">
+                    <label id="filename"></label>
+                </div>
+                <textarea id="contents" autoComplete="off" style="height: 30%"></textarea>
+                <button onclick="copyToClipboard()">Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script>
+        $("#file").change(function(e) {
+            $("#filename").html(e.target.files[0].name);
+            convertToString(e);
+        });
+
+        function convertToString(e) {
+            readBinary(e);
+        }
+
+        function readBinary(e) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var arrayBuffer = this.result;
+                var array = new Uint8Array(arrayBuffer);
+                var content = "";
+
+                array.forEach(function(i) {
+                    if (i >= 32 && i <= 127 || i === 10) {
+                        content += String.fromCharCode(i)
+                    }
+                })
+                displayContents(content)
+            }
+            reader.readAsArrayBuffer(e.target.files[0]);
+        }
+
+        function displayContents(contents) {
+            $("#contents").val(contents);
+        }
+
+        function copyToClipboard() {
+            var copyText = document.getElementById("contents");
+            copyText.select();
+            copyText.setSelectionRange(0, 9999999999); /*For mobile devices*/
+            document.execCommand("copy");
+        }
+    </script>
+{% endblock scripts %}

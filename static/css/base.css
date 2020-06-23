@@ -11,6 +11,20 @@ input[type="search"] {
     color: black;
 }
 
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
 a:hover {
     color: white;
 }
@@ -87,7 +101,7 @@ input[type="search"] {
 }
 
 span.textbox {
-	background-color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0);
     color: #888;
     line-height:20px;
     height:20px;
@@ -95,8 +109,14 @@ span.textbox {
     border:1px #888 solid;
     font-size:9pt;
 }
-    
+
 span.textbox input {
     border: 0px;
-	background-color: rgba(0,0,0,0);
-  }
+    background-color: rgba(0,0,0,0);
+}
+
+#filename {
+    display: inline-block;
+    margin-left: 15px;
+}
+

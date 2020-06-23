@@ -47,6 +47,11 @@ lazy_static! {
             "Binary Conversion",
             "Convert Binary To For Example HEX",
             "/tools/binary/binary_conversion",
+        ),
+        Tool::new(
+            "Binary To String",
+            "Convert Binary(Or Just A Simple Text File) To String",
+            "/tools/binary/binary_to_string",
         )
     ];
 }
@@ -85,6 +90,7 @@ fn main() {
                 tools::hashing::bcrypt::bcrypt_hash_query,
                 tools::strings::count::count_string,
                 tools::binary::binary_conversion::binary_conversion,
+                tools::binary::binary_to_string::binary_to_string,
                 search,
             ],
         )

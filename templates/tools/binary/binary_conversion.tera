@@ -6,7 +6,7 @@
         <div class="card">
             <div>
                 <label>Decimal</label>
-                <input id="decimal" type="text" placeholder="Enter hex format" onkeyup="calculate(0, this.value)">
+                <input id="decimal" type="text" placeholder="Enter decimal format" onkeyup="calculate(0, this.value)">
             </div>
             <div>
                 <label>Binary</label>
