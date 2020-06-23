@@ -85,3 +85,18 @@ input[type="search"] {
     padding: 5px;
     margin: 0;
 }
+
+span.textbox {
+	background-color: rgba(0,0,0,0);
+    color: #888;
+    line-height:20px;
+    height:20px;
+    padding:3px;
+    border:1px #888 solid;
+    font-size:9pt;
+}
+    
+span.textbox input {
+    border: 0px;
+	background-color: rgba(0,0,0,0);
+  }

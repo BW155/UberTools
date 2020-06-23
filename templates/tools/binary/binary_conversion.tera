@@ -1,0 +1,111 @@
+{% extends "base" %}
+
+{% block content %}
+    <div class="container">
+        <h3>Convert Binary</h3>
+        <div class="card">
+            <div>
+                <label>Decimal</label>
+                <input id="decimal" type="text" placeholder="Enter hex format" onkeyup="calculate(0, this.value)">
+            </div>
+            <div>
+                <label>Binary</label>
+                <input id="binary" type="text" placeholder="Enter binary format" onkeyup="calculate(1, this.value)">
+            </div>
+            <div>
+                <label>Hex</label>
+                <input id="hex" type="text" placeholder="Enter hex format" onkeyup="calculate(2, this.value)">
+            </div>
+            <div>
+                <label>ASCII</label>
+                <textarea id="ascii" onkeyup="calculate(3, this.value)"></textarea>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script>
+
+        $("input").on('paste', function(e) {
+            $(e.target).keyup();
+        });
+
+        function calculate(type, value) {
+            let decimal_field = $("#decimal");
+            let binary_field = $("#binary");
+            let hex_field = $("#hex");
+            let ascii_field = $("#ascii");
+
+            var decimal = 0;
+            var binary = "0"
+            var hex = "0x";
+            var ascii = "";
+
+            switch (type) {
+                case 0:
+                    decimal = parseInt(value);
+                    hex = decimal.toString(16).toUpperCase();
+                    binary = decimal.toString(2);
+                    ascii = HexToAscii(hex);
+                    break;
+                case 1:
+                    value = value.replace(/\ /g, "");
+                    decimal = parseInt(value, 2);
+                    hex = decimal.toString(16).toUpperCase();
+                    ascii = HexToAscii(hex);
+                    break;
+                case 2:
+                    value = value.replace("0x", "").replace("x", "");
+                    decimal = parseInt(value, 16);
+                    binary = decimal.toString(2);
+                    ascii = HexToAscii(value);
+                    break;
+                case 3:
+                    hex = AsciiToHex(value);
+                    decimal = parseInt(hex, 16);
+                    binary = decimal.toString(2);
+                    break;
+                default:
+                    break;
+            }
+            console.log(ascii);
+
+            if (!isNaN(decimal)) {
+                if (type !== 0) {
+                    decimal_field.val(decimal);
+                }
+                if (type !== 1) {
+                    binary_field.val(binary);
+                }
+                if (type !== 2) {
+                    hex_field.val("0x" + hex);
+                }
+                if (type !== 3) {
+                    ascii_field.val(ascii);
+                }
+            } else {
+                decimal_field.val("");
+                binary_field.val("");
+                hex_field.val("0x");
+                ascii_field.val("");
+            }
+        }
+
+        function AsciiToHex(str) {
+            return str.split("").map(i => i.charCodeAt().toString(16)).join('');
+        }
+
+        function HexToAscii(str) { 
+            try {
+                return str
+                    .replace(/\ /g, "")
+                    .match(/.{2}/g)
+                    .map(i => String.fromCharCode(parseInt(i, 16)))
+                    .join(''); 
+            } catch(e) {
+                return ""
+            }
+        }
+    </script>
+{% endblock scripts %}

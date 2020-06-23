@@ -42,6 +42,11 @@ lazy_static! {
             "Bcrypt Hash",
             "Hash Text To Bcrypt",
             "/tools/hashing/bcrypt_hash",
+        ),
+        Tool::new(
+            "Binary Conversion",
+            "Convert Binary To For Example HEX",
+            "/tools/binary/binary_conversion",
         )
     ];
 }
@@ -79,6 +84,7 @@ fn main() {
                 tools::hashing::bcrypt::bcrypt_hash,
                 tools::hashing::bcrypt::bcrypt_hash_query,
                 tools::strings::count::count_string,
+                tools::binary::binary_conversion::binary_conversion,
                 search,
             ],
         )
