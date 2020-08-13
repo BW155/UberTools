@@ -1,0 +1,21 @@
+{% extends "base" %}
+
+{% block content %}
+    <div class="container">
+        <h3>Resize/Crop Images</h3>
+        <form>
+            <div class="card">
+                <div>
+                    <div class="upload-btn-wrapper">
+                        <button>Select image to resize/crop</button>
+                        <input id="file" type="file" placeholder="Enter Image File" multiple accept="image/*">
+                        <label id="filename"></label>
+                    </div>
+                </div>               
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

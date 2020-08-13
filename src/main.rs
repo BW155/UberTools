@@ -44,7 +44,7 @@ lazy_static! {
             "/tools/hashing/bcrypt_hash",
         ),
         Tool::new(
-            "Binary Conversion",
+            "Decimal/Binary/Hex/ASCII Format Conversion",
             "Convert Binary To For Example HEX",
             "/tools/binary/binary_conversion",
         ),
@@ -52,6 +52,11 @@ lazy_static! {
             "Binary To String",
             "Convert Binary(Or Just A Simple Text File) To String",
             "/tools/binary/binary_to_string",
+        ),
+        Tool::new(
+            "Resize/Crop Images",
+            "Resize/Crop an Image To Your Desired Size",
+            "/tools/images/resize",
         )
     ];
 }
@@ -91,6 +96,7 @@ fn main() {
                 tools::strings::count::count_string,
                 tools::binary::binary_conversion::binary_conversion,
                 tools::binary::binary_to_string::binary_to_string,
+                tools::images::resize::image_resize,
                 search,
             ],
         )
