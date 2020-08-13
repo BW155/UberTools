@@ -10,7 +10,7 @@
             <div>
                 <div class="upload-btn-wrapper">
                     <button>File To Get Text From</button>
-                    <input id="file" type="file" placeholder="Enter File" onkeyup="calculate(0, this.value)">
+                    <input id="file" type="file" placeholder="Enter File">
                     <label id="filename"></label>
                 </div>
                 <textarea id="contents" autoComplete="off" style="height: 30%"></textarea>
